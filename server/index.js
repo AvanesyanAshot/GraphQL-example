@@ -5,8 +5,12 @@ const schema = require('../schema/schema')
 const app = express()
 const PORT = 8000
 
+
+var root = { hello: () => 'Hello world!' };
+
 app.use('/graphql', graphqlHTTP({
     schema,
+    rootValue: root,
     graphiql: true
 }))
 
